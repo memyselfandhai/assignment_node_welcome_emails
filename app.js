@@ -94,7 +94,17 @@ app.get("/", (req, res) => {
 });
 
 app.post("/send", (req, res) => {
-  res.redirect("/");
+  const options = {
+    to: req.body.to,
+    subject: req.body.subject,
+    text: req.body.message,
+    html: `<p>${req.body.message}</p>`
+  };
+
+  EmailService.send(options).then(result => {
+    req.flash("success", "Sent");
+    res.render("emails/new", { result });
+  });
 });
 
 app.post("/register", (req, res) => {

@@ -1,3 +1,7 @@
+{{#if result }}
+  <pre>{{ json result }}</pre>
+{{/if }}
+
 <form action='/send' method='post'>
   <label for='to' name='To'>To</label>
   <input class='form-control' type='text' name='to'/ />
