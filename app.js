@@ -96,6 +96,7 @@ app.get("/", (req, res) => {
 app.post("/send", (req, res) => {
   const options = {
     to: req.body.to,
+    from: "hai.nguyen.dfw@gmail.com",
     subject: req.body.subject,
     text: req.body.message,
     html: `<p>${req.body.message}</p>`
